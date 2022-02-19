@@ -1,26 +1,26 @@
 {
-  "name": "dotfetch",
-  "version": "1.0.0",
-  "description": "Dot-notated api wrapper over the fetch function",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ruslankonev/dotfetch.git"
-  },
-  "keywords": [
-    "fetch",
-    "api",
-    "query",
-    "proxy-object",
-    "axios"
-  ],
-  "author": "Ruslan Konev <konev.lincor+git@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ruslankonev/dotfetch/issues"
-  },
-  "homepage": "https://github.com/ruslankonev/dotfetch#readme"
+	"name": "dotfetch",
+	"version": "1.1.0",
+	"description": "Dot-notated api wrapper for the browser fetch function.",
+	"main": "src/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ruslankonev/dotfetch.git"
+	},
+	"keywords": [
+		"fetch",
+		"api",
+		"query",
+		"proxy-object",
+		"axios"
+	],
+	"author": "Ruslan Konev <konev.lincor+git@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/ruslankonev/dotfetch/issues"
+	},
+	"homepage": "https://github.com/ruslankonev/dotfetch#readme"
 }

@@ -1,4 +1,4 @@
-<h1>
+<h1 style="margin-top: 2rem">
 	<img src="./.github/dotfetch.svg" height="60" />
 </h1>
 
@@ -10,22 +10,45 @@ Dot-notated api wrapper for the browser Fetch API.
 npm i dotfetch
 ```
 
-## Usage
+## Setup
 
 ```js
 import Dotfetch from 'dotfetch'
 
 const api = new Dotfetch({
   basePath: 'https://jsonplaceholder.typicode.com/',
+  parseJson: true,
   headers: {
     Authorization: 'Bearer ',
   },
 })
+```
+
+## Options
+
+### Dotfetch options:
+
+`basePath`: string — setup a base path for api-call
+
+`parseJson`: boolean — return `response.json()` instead [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object. Default `false`
+
+### Fetch API options:
+
+Dotfetch supports all standard Fetch API options.
+
+## Return value
+
+[Fetch API Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object
+
+## Examples
+
+```js
+[api][...path][method](params)
 
 
-// Api-call request
-GET: '/application/2/permissions/{id}'
-await api.application(2).permissions.get(id)
+// Make api-call request
+GET: '/application/{appId}/permissions/{id}'
+await api.application(appId).permissions.get(id)
 
 // JSON-placeholder examples
 GET: '/posts'
@@ -49,16 +72,6 @@ await api.posts(1).patch({ title, postId })
 DELETE: '/posts/1'
 await api.posts(1).delete()
 ```
-
-## Options
-
-### Dotfetch options:
-
-`basePath` — setup a base path for api-call
-
-### Fetch API options:
-
-Dotfetch supports all standard Fetch API options.
 
 ## License
 

@@ -6,9 +6,8 @@ const handler = {
     return new Proxy(target, handler)
   },
 
-  apply(target, ctx, args) {
-    const data = args[0]
-    const fetchOptions = args[1]
+  apply: async (target, ctx, args) => {
+    const [data, fetchOptions] = args
     const callinProp = target.route.slice(-1)[0]
     const isMethod = METHODS.includes(callinProp)
 
@@ -47,6 +46,12 @@ const handler = {
     }
 
     target.route = []
+
+    if (target.parseJson) {
+      const resp = await target.fetch(path, callingOpts)
+      return resp.json()
+    }
+
     return target.fetch(path, callingOpts)
   },
 }
@@ -54,10 +59,11 @@ const handler = {
 class Dotfetch {
   constructor(opts) {
     const rest = () => {}
-    const { basePath, ...fetchOptions } = opts
+    const { basePath, parseJson, ...fetchOptions } = opts
     rest.fetch = (...args) => fetch(...args)
     rest.fetchOptions = Object.assign({ headers: {} }, fetchOptions)
     rest.basePath = basePath || '/'
+    rest.parseJson = parseJson
     rest.route = []
 
     return new Proxy(rest, handler)
